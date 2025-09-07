@@ -1,6 +1,7 @@
 class StringCalculator
   def add(numbers)
     return 0 if numbers.nil? || numbers == ""
-    numbers.to_i
-  end
+    numbers.split(",").map { |n| n.to_i }.reduce(0, :+)
+   end
 end
+  
