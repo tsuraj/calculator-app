@@ -24,8 +24,17 @@ RSpec.describe StringCalculator do
       expect(calc.add("1\n2,3")).to eq(6)
     end
 
+    it "handles multiple newlines and comma between numbers" do
+      expect(calc.add("1\n2,3\n6,6,12\n5")).to eq(35)
+    end
+ 
+
     it "handles custom  delimiter" do
       expect(calc.add("//;\n1;2")).to eq(3)
+    end
+
+    it "handles custom  delimiter  '*' " do
+      expect(calc.add("//*\n1*2")).to eq(3)
     end
 
     it "raises an error listing negative numbers when present" do
